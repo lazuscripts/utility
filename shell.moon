@@ -1,3 +1,7 @@
+quote = (str) ->
+  escaped = str\gsub "'", [['"'"']]
+  return "'#{escaped}'"
+
 execute = (cmd, capture_exit_code=true) ->
   local handle
   if capture_exit_code
@@ -14,5 +18,6 @@ execute = (cmd, capture_exit_code=true) ->
   return exit_code, output
 
 {
+  :quote
   :execute
 }
