@@ -64,6 +64,15 @@ settings = {
       cache[setting.name] = setting
       settings[setting.name] = totype setting.value
     return settings
+
+  delete: (name) ->
+    setting = cache[name]
+    unless setting
+      setting = Settings\find :name
+    if setting
+      setting\delete!
+    cache[name] = nil
+    settings[name] = nil
 }
 
 return setmetatable settings, {
