@@ -23,7 +23,12 @@ abort = (status, message) ->
   else
     yield_error status
 
+assert_model = (result, err) ->
+  abort 500, err if err
+  return result
+
 {
   :request
   :abort
+  :assert_model
 }
