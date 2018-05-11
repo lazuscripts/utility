@@ -14,7 +14,7 @@ request = (fn) ->
           insert errors, err[2]
         else
           insert errors, err
-      return(:status, json: { :errors })
+      return(:status, json: { success: false, :errors })
   }
 
 abort = (status, message) ->
